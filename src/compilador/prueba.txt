@@ -1,0 +1,21 @@
+public class prueba {
+
+
+	int numerouno = 1;
+	int numerodos = 2;
+
+	if(numerouno == numerodos){
+
+		numerouno = 10 + 10;
+
+	}
+
+
+	if(numerouno < numerodos){
+
+		numerouno = 10 - 15;
+
+	}
+
+
+}
