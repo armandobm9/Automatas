@@ -17,9 +17,10 @@ public class LenguajesAutomatas implements LenguajesAutomatasConstants {
             File file = new File("src/compilador/prueba.txt");
             FileInputStream fis = new FileInputStream(file);
             LenguajesAutomatas analizador = new LenguajesAutomatas(fis);
+            System.out.println("No se encontraron errores en el código...\nMostrando tokens:\n");
             analizador.compile();
-            System.out.println("");
-            System.out.printf("%s\u005ct%s\u005cn------------------------------------------------------------------\u005cn", "TYPE", "IDENTIFIER VALUE");
+            System.out.println("\nTIPO | VALOR IDENTIFICADOR");
+            System.out.println("--------------------------");
             Enumeration e = ST.keys();
             Object clave;
             Object valor;
