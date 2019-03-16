@@ -15,6 +15,8 @@ import javax.swing.JTable;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
+
+import analizador.GenerarTabla;
 class comp extends JFrame implements compConstants {
 	
 	static comp analizador = null ;
@@ -24,7 +26,7 @@ class comp extends JFrame implements compConstants {
     private JScrollPane scrollpane13;
     private JTextArea textarea1;
     public static JTextArea textarea2;
-    private JTextArea textarea3;
+    public static JTextArea textarea3;
     private JLabel label1, label2;
     public static JTextField textfield1;
     private static JTable tabla2;
@@ -50,8 +52,10 @@ class comp extends JFrame implements compConstants {
         scrollpane1.setBounds(10,30,300,400);
         add(scrollpane1);
         scrollpane12.setBounds(320,30,300,400);
+        textarea2.setEnabled(false);
         add(scrollpane12);
-        scrollpane13.setBounds(630,30,300,300);
+        
+        scrollpane13.setBounds(630,30,300,400);
         add(scrollpane13);
         b1=new JButton("Análisis");
         b1.setBounds(10,440,100,30);
@@ -59,6 +63,7 @@ class comp extends JFrame implements compConstants {
         textarea3=new JTextArea(); 
         scrollpane13=new JScrollPane(textarea3);
         scrollpane13.setBounds(120,440,500,60);
+        textarea3.setEnabled(false);
         add(scrollpane13);
         
         
@@ -66,6 +71,10 @@ class comp extends JFrame implements compConstants {
         	public void actionPerformed(ActionEvent ae){
         		textarea2.setText("");
         		try {
+        			textarea2.setEnabled(true);
+        			textarea3.setEnabled(true);
+        			textarea3.setText("");
+        			
                     String text = textarea1.getText();
                     InputStream is = new ByteArrayInputStream(text.getBytes("UTF-8"));
                     
@@ -74,11 +83,9 @@ class comp extends JFrame implements compConstants {
 					if(analizador==null) analizador = new comp(is); else ReInit(is) ;
                 
                     analizador.Programa();
+                    GenerarTabla tabla = new GenerarTabla(text);
                    
-                    
-                    System.out.println("Analizador ha terminado.");
-                    
-                    
+                    //textarea3.setText("Análisis léxico-sintáctico correcto");
                     ReInit(is);
                     
                 } catch (UnsupportedEncodingException e1) {
@@ -245,7 +252,7 @@ v2 = token;
 
                 if(res != " ")
                 {
-                        System.out.println(res);
+                	textarea3.append(res); textarea3.append(System.getProperty("line.separator"));
                         imp = true;
                 }
     label_3:
@@ -274,7 +281,8 @@ v3 = token;
 
                 if(res != " " && !imp)
                 {
-                        System.out.println(res);
+                	textarea3.append(res); textarea3.append(System.getProperty("line.separator"));
+
                 }
     }
   }
@@ -742,7 +750,7 @@ v2 = token;
 
         if(res != " ")
         {
-                System.out.println(res);
+        	textarea3.append(res); textarea3.append(System.getProperty("line.separator"));
                 imp = true;
         }
       label_7:
@@ -759,7 +767,7 @@ v3 = token;
 
         if(res != " " && !imp)
         {
-                System.out.println(res);
+        	textarea3.append(res); textarea3.append(System.getProperty("line.separator"));
         }
       }
       break;
@@ -783,7 +791,7 @@ v3 = token;
 res = TokenAsignaciones.checkVariable(v1);
 
         if(res != " ")
-                System.out.println(res);
+        	textarea3.append(res); textarea3.append(System.getProperty("line.separator"));
       break;
       }
     default:

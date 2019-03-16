@@ -1224,262 +1224,262 @@ static void TokenLexicalActions(Token matchedToken)
       case 1 :
         image.append(jjstrLiteralImages[1]);
         lengthOfMatch = jjstrLiteralImages[1].length();
-                               System.out.println("OPERADOR -> " + image);
+                               comp.textarea2.append("OPERADOR -> " + image); comp.textarea2.append(System.getProperty("line.separator"));
          break;
       case 2 :
         image.append(jjstrLiteralImages[2]);
         lengthOfMatch = jjstrLiteralImages[2].length();
-                          System.out.println("OPERADOR -> " + image);
+                          comp.textarea2.append("OPERADOR -> " + image); comp.textarea2.append(System.getProperty("line.separator"));
          break;
       case 3 :
         image.append(jjstrLiteralImages[3]);
         lengthOfMatch = jjstrLiteralImages[3].length();
-                        System.out.println("OPERADOR -> " + image);
+                        comp.textarea2.append("OPERADOR -> " + image); comp.textarea2.append(System.getProperty("line.separator"));
          break;
       case 4 :
         image.append(jjstrLiteralImages[4]);
         lengthOfMatch = jjstrLiteralImages[4].length();
-                            System.out.println("OPERADOR -> " + image);
+                            comp.textarea2.append("OPERADOR -> " + image); comp.textarea2.append(System.getProperty("line.separator"));
          break;
       case 5 :
         image.append(jjstrLiteralImages[5]);
         lengthOfMatch = jjstrLiteralImages[5].length();
-                         System.out.println("OPERADOR -> " + image);
+                         comp.textarea2.append("OPERADOR -> " + image); comp.textarea2.append(System.getProperty("line.separator"));
          break;
       case 6 :
         image.append(jjstrLiteralImages[6]);
         lengthOfMatch = jjstrLiteralImages[6].length();
-                          System.out.println("OPERADOR -> " + image);
+                          comp.textarea2.append("OPERADOR -> " + image); comp.textarea2.append(System.getProperty("line.separator"));
          break;
       case 7 :
         image.append(jjstrLiteralImages[7]);
         lengthOfMatch = jjstrLiteralImages[7].length();
-                          System.out.println("OPERADOR -> " + image);
+                          comp.textarea2.append("OPERADOR -> " + image); comp.textarea2.append(System.getProperty("line.separator"));
          break;
       case 8 :
         image.append(jjstrLiteralImages[8]);
         lengthOfMatch = jjstrLiteralImages[8].length();
-                               System.out.println("MODIFICADOR -> " + image);
+                               comp.textarea2.append("MODIFICADOR -> " + image); comp.textarea2.append(System.getProperty("line.separator"));
          break;
       case 9 :
         image.append(jjstrLiteralImages[9]);
         lengthOfMatch = jjstrLiteralImages[9].length();
-                                 System.out.println("MODIFICADOR -> " + image);
+                                 comp.textarea2.append("MODIFICADOR -> " + image); comp.textarea2.append(System.getProperty("line.separator"));
          break;
       case 10 :
         image.append(jjstrLiteralImages[10]);
         lengthOfMatch = jjstrLiteralImages[10].length();
-                               System.out.println("PALABRA_RES -> " + image);
+                               comp.textarea2.append("PALABRA_RES -> " + image); comp.textarea2.append(System.getProperty("line.separator"));
          break;
       case 11 :
         image.append(jjstrLiteralImages[11]);
         lengthOfMatch = jjstrLiteralImages[11].length();
-                           System.out.println("PALABRA_RES -> " + image);
+                           comp.textarea2.append("PALABRA_RES -> " + image); comp.textarea2.append(System.getProperty("line.separator"));
          break;
       case 12 :
         image.append(jjstrLiteralImages[12]);
         lengthOfMatch = jjstrLiteralImages[12].length();
-                                                System.out.println("PALABRA_RES -> " + image);
+                                                comp.textarea2.append("PALABRA_RES -> " + image); comp.textarea2.append(System.getProperty("line.separator"));
          break;
       case 13 :
         image.append(jjstrLiteralImages[13]);
         lengthOfMatch = jjstrLiteralImages[13].length();
-                                    System.out.println("PALABRA_RES -> " + image);
+                                    comp.textarea2.append("PALABRA_RES -> " + image); comp.textarea2.append(System.getProperty("line.separator"));
          break;
       case 14 :
         image.append(jjstrLiteralImages[14]);
         lengthOfMatch = jjstrLiteralImages[14].length();
-                        System.out.println("PALABRA_RES -> " + image);
+                        comp.textarea2.append("PALABRA_RES -> " + image); comp.textarea2.append(System.getProperty("line.separator"));
          break;
       case 15 :
         image.append(jjstrLiteralImages[15]);
         lengthOfMatch = jjstrLiteralImages[15].length();
-                            System.out.println("PALABRA_RES -> " + image);
+                            comp.textarea2.append("PALABRA_RES -> " + image); comp.textarea2.append(System.getProperty("line.separator"));
          break;
       case 16 :
         image.append(jjstrLiteralImages[16]);
         lengthOfMatch = jjstrLiteralImages[16].length();
-                                System.out.println("PALABRA_RES -> " + image);
+                                comp.textarea2.append("PALABRA_RES -> " + image); comp.textarea2.append(System.getProperty("line.separator"));
          break;
       case 17 :
         image.append(jjstrLiteralImages[17]);
         lengthOfMatch = jjstrLiteralImages[17].length();
-                         System.out.println("PALABRA_RES -> " + image);
+                         comp.textarea2.append("PALABRA_RES -> " + image); comp.textarea2.append(System.getProperty("line.separator"));
          break;
       case 18 :
         image.append(jjstrLiteralImages[18]);
         lengthOfMatch = jjstrLiteralImages[18].length();
-                               System.out.println("PALABRA_RES -> " + image);
+                               comp.textarea2.append("PALABRA_RES -> " + image); comp.textarea2.append(System.getProperty("line.separator"));
          break;
       case 19 :
         image.append(jjstrLiteralImages[19]);
         lengthOfMatch = jjstrLiteralImages[19].length();
-                           System.out.println("PALABRA_RES -> " + image);
+                           comp.textarea2.append("PALABRA_RES -> " + image); comp.textarea2.append(System.getProperty("line.separator"));
          break;
       case 20 :
         image.append(jjstrLiteralImages[20]);
         lengthOfMatch = jjstrLiteralImages[20].length();
-                             System.out.println("PALABRA_RES -> " + image);
+                             comp.textarea2.append("PALABRA_RES -> " + image); comp.textarea2.append(System.getProperty("line.separator"));
          break;
       case 21 :
         image.append(jjstrLiteralImages[21]);
         lengthOfMatch = jjstrLiteralImages[21].length();
-                                System.out.println("PALABRA_RES -> " + image);
+                                comp.textarea2.append("PALABRA_RES -> " + image); comp.textarea2.append(System.getProperty("line.separator"));
          break;
       case 22 :
         image.append(jjstrLiteralImages[22]);
         lengthOfMatch = jjstrLiteralImages[22].length();
-                       System.out.println("PALABRA_RES -> " + image);
+                       comp.textarea2.append("PALABRA_RES -> " + image); comp.textarea2.append(System.getProperty("line.separator"));
          break;
       case 23 :
         image.append(jjstrLiteralImages[23]);
         lengthOfMatch = jjstrLiteralImages[23].length();
-                             System.out.println("PALABRA_RES -> " + image);
+                             comp.textarea2.append("PALABRA_RES -> " + image); comp.textarea2.append(System.getProperty("line.separator"));
          break;
       case 24 :
         image.append(jjstrLiteralImages[24]);
         lengthOfMatch = jjstrLiteralImages[24].length();
-                                          System.out.println("PALABRA_RES -> " + image);
+                                          comp.textarea2.append("PALABRA_RES -> " + image); comp.textarea2.append(System.getProperty("line.separator"));
          break;
       case 25 :
         image.append(jjstrLiteralImages[25]);
         lengthOfMatch = jjstrLiteralImages[25].length();
-                           System.out.println("PALABRA_RES -> " + image);
+                           comp.textarea2.append("PALABRA_RES -> " + image); comp.textarea2.append(System.getProperty("line.separator"));
          break;
       case 26 :
         image.append(jjstrLiteralImages[26]);
         lengthOfMatch = jjstrLiteralImages[26].length();
-                       System.out.println("DELIMITADOR -> " + image);
+                       comp.textarea2.append("DELIMITADOR -> " + image); comp.textarea2.append(System.getProperty("line.separator"));
          break;
       case 27 :
         image.append(jjstrLiteralImages[27]);
         lengthOfMatch = jjstrLiteralImages[27].length();
-                           System.out.println("DELIMITADOR -> " + image);
+                           comp.textarea2.append("DELIMITADOR -> " + image); comp.textarea2.append(System.getProperty("line.separator"));
          break;
       case 28 :
         image.append(jjstrLiteralImages[28]);
         lengthOfMatch = jjstrLiteralImages[28].length();
-                           System.out.println("DELIMITADOR -> " + image);
+                           comp.textarea2.append("DELIMITADOR -> " + image); comp.textarea2.append(System.getProperty("line.separator"));
          break;
       case 29 :
         image.append(jjstrLiteralImages[29]);
         lengthOfMatch = jjstrLiteralImages[29].length();
-                           System.out.println("DELIMITADOR -> " + image);
+                           comp.textarea2.append("DELIMITADOR -> " + image); comp.textarea2.append(System.getProperty("line.separator"));
          break;
       case 30 :
         image.append(jjstrLiteralImages[30]);
         lengthOfMatch = jjstrLiteralImages[30].length();
-                             System.out.println("DELIMITADOR -> " + image);
+                             comp.textarea2.append("DELIMITADOR -> " + image); comp.textarea2.append(System.getProperty("line.separator"));
          break;
       case 31 :
         image.append(jjstrLiteralImages[31]);
         lengthOfMatch = jjstrLiteralImages[31].length();
-                             System.out.println("DELIMITADOR -> " + image);
+                             comp.textarea2.append("DELIMITADOR -> " + image); comp.textarea2.append(System.getProperty("line.separator"));
          break;
       case 32 :
         image.append(jjstrLiteralImages[32]);
         lengthOfMatch = jjstrLiteralImages[32].length();
-                              System.out.println("DELIMITADOR -> " + image);
+                              comp.textarea2.append("DELIMITADOR -> " + image); comp.textarea2.append(System.getProperty("line.separator"));
          break;
       case 33 :
         image.append(jjstrLiteralImages[33]);
         lengthOfMatch = jjstrLiteralImages[33].length();
-                          System.out.println("DELIMITADOR -> " + image);
+                          comp.textarea2.append("DELIMITADOR -> " + image); comp.textarea2.append(System.getProperty("line.separator"));
          break;
       case 34 :
         image.append(jjstrLiteralImages[34]);
         lengthOfMatch = jjstrLiteralImages[34].length();
-                        System.out.println("DELIMITADOR -> " + image);
+                        comp.textarea2.append("DELIMITADOR -> " + image); comp.textarea2.append(System.getProperty("line.separator"));
          break;
       case 35 :
         image.append(jjstrLiteralImages[35]);
         lengthOfMatch = jjstrLiteralImages[35].length();
-                                System.out.println("DELIMITADOR -> " + image);
+                                comp.textarea2.append("DELIMITADOR -> " + image); comp.textarea2.append(System.getProperty("line.separator"));
          break;
       case 36 :
         image.append(jjstrLiteralImages[36]);
         lengthOfMatch = jjstrLiteralImages[36].length();
-                        System.out.println("OPERADOR_LOG -> " + image);
+                        comp.textarea2.append("OPERADOR_LOG -> " + image); comp.textarea2.append(System.getProperty("line.separator"));
          break;
       case 37 :
         image.append(jjstrLiteralImages[37]);
         lengthOfMatch = jjstrLiteralImages[37].length();
-                        System.out.println("OPERADOR_LOG -> " + image);
+                        comp.textarea2.append("OPERADOR_LOG -> " + image); comp.textarea2.append(System.getProperty("line.separator"));
          break;
       case 38 :
         image.append(jjstrLiteralImages[38]);
         lengthOfMatch = jjstrLiteralImages[38].length();
-                       System.out.println("OPERADOR_LOG -> " + image);
+                       comp.textarea2.append("OPERADOR_LOG -> " + image); comp.textarea2.append(System.getProperty("line.separator"));
          break;
       case 39 :
         image.append(jjstrLiteralImages[39]);
         lengthOfMatch = jjstrLiteralImages[39].length();
-                        System.out.println("OPERADOR_LOG -> " + image);
+                        comp.textarea2.append("OPERADOR_LOG -> " + image); comp.textarea2.append(System.getProperty("line.separator"));
          break;
       case 40 :
         image.append(jjstrLiteralImages[40]);
         lengthOfMatch = jjstrLiteralImages[40].length();
-                       System.out.println("OPERADOR_LOG -> " + image);
+                       comp.textarea2.append("OPERADOR_LOG -> " + image); comp.textarea2.append(System.getProperty("line.separator"));
          break;
       case 41 :
         image.append(jjstrLiteralImages[41]);
         lengthOfMatch = jjstrLiteralImages[41].length();
-                        System.out.println("OPERADOR_LOG -> " + image);
+                        comp.textarea2.append("OPERADOR_LOG -> " + image); comp.textarea2.append(System.getProperty("line.separator"));
          break;
       case 42 :
         image.append(jjstrLiteralImages[42]);
         lengthOfMatch = jjstrLiteralImages[42].length();
-                        System.out.println("OPERADOR_LOG -> " + image);
+                        comp.textarea2.append("OPERADOR_LOG -> " + image); comp.textarea2.append(System.getProperty("line.separator"));
          break;
       case 43 :
         image.append(jjstrLiteralImages[43]);
         lengthOfMatch = jjstrLiteralImages[43].length();
-                        System.out.println("OPERADOR_LOG -> " + image);
+                        comp.textarea2.append("OPERADOR_LOG -> " + image); comp.textarea2.append(System.getProperty("line.separator"));
          break;
       case 44 :
         image.append(jjstrLiteralImages[44]);
         lengthOfMatch = jjstrLiteralImages[44].length();
-                        System.out.println("TIPO -> " + image);
+                        comp.textarea2.append("TIPO -> " + image); comp.textarea2.append(System.getProperty("line.separator"));
          break;
       case 45 :
         image.append(jjstrLiteralImages[45]);
         lengthOfMatch = jjstrLiteralImages[45].length();
-                            System.out.println("TIPO -> " + image);
+                            comp.textarea2.append("TIPO -> " + image); comp.textarea2.append(System.getProperty("line.separator"));
          break;
       case 46 :
         image.append(jjstrLiteralImages[46]);
         lengthOfMatch = jjstrLiteralImages[46].length();
-                          System.out.println("TIPO -> " + image);
+                          comp.textarea2.append("TIPO -> " + image); comp.textarea2.append(System.getProperty("line.separator"));
          break;
       case 47 :
         image.append(jjstrLiteralImages[47]);
         lengthOfMatch = jjstrLiteralImages[47].length();
-                            System.out.println("TIPO -> " + image);
+                            comp.textarea2.append("TIPO -> " + image); comp.textarea2.append(System.getProperty("line.separator"));
          break;
       case 48 :
         image.append(input_stream.GetSuffix(jjimageLen + (lengthOfMatch = jjmatchedPos + 1)));
-                                     System.out.println("NUMERO -> " + image);
+        comp.textarea2.append("NUMERO -> " + image); comp.textarea2.append(System.getProperty("line.separator"));
          break;
       case 49 :
         image.append(input_stream.GetSuffix(jjimageLen + (lengthOfMatch = jjmatchedPos + 1)));
-                                                                              System.out.println("IDENTIFICADOR -> " + image);
+        comp.textarea2.append("IDENTIFICADOR -> " + image); comp.textarea2.append(System.getProperty("line.separator"));
          break;
       case 50 :
         image.append(input_stream.GetSuffix(jjimageLen + (lengthOfMatch = jjmatchedPos + 1)));
-                                                       System.out.println("VALOR -> " + image);
+        comp.textarea2.append("VALOR -> " + image); comp.textarea2.append(System.getProperty("line.separator"));
          break;
       case 51 :
         image.append(input_stream.GetSuffix(jjimageLen + (lengthOfMatch = jjmatchedPos + 1)));
-                                                                                                                           System.out.println("CADENA -> " + image);
+        comp.textarea2.append("CADENA -> " + image); comp.textarea2.append(System.getProperty("line.separator"));
          break;
       case 52 :
         image.append(input_stream.GetSuffix(jjimageLen + (lengthOfMatch = jjmatchedPos + 1)));
-                                                      System.out.println("CARACTER -> " + image);
+        comp.textarea2.append("CARACTER -> " + image); comp.textarea2.append(System.getProperty("line.separator"));
          break;
       case 53 :
         image.append(jjstrLiteralImages[53]);
         lengthOfMatch = jjstrLiteralImages[53].length();
-                                System.out.println("DOBLEPUNTO -> " + image);
+        comp.textarea2.append("DOBLEPUNTO -> " + image); comp.textarea2.append(System.getProperty("line.separator"));
          break;
       default :
          break;

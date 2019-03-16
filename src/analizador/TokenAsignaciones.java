@@ -5,12 +5,13 @@ import java.util.Hashtable;
 import java.lang.String;
 import java.util.ArrayList;
 
+
 class TokenAsignaciones
 {
 	  //Variable para validar asignaciones a caracteres(ichr)
 	  public static int segunda = 0;
 	  //Tabla que almacenara los tokens declarados
-	  private static Hashtable tabla = new Hashtable();
+	  public static Hashtable tabla = new Hashtable();
 	  
 	  //Listas que guardaran los tipos compatibles de las variables
 	  private static ArrayList<Integer> intComp = new ArrayList();
