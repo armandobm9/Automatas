@@ -27,10 +27,11 @@ class comp extends JFrame implements compConstants {
     private JTextArea textarea1;
     public static JTextArea textarea2;
     public static JTextArea textarea3;
-    private JLabel label1, label2;
+    private JLabel label1, label2, label3;
     public static JTextField textfield1;
     private static JTable tabla2;
-    
+    public static String headers[] = { "Nombre", "Tipo", "Valor", "Posición", "Alcance" };
+    public static DefaultTableModel dtm = new DefaultTableModel(headers, 10);
     
     public comp() {
     	super("Compilador");
@@ -41,11 +42,15 @@ class comp extends JFrame implements compConstants {
         label2=new JLabel("Tokens:");
         label2.setBounds(320,2,100,30);
         add(label2);
+        label3=new JLabel("Tabla de símbolos:");
+        label3.setBounds(630,2,150,30);
+        add(label3);
         textarea1=new JTextArea();     
         textarea2=new JTextArea(); 
         //Nombre, Tipo Dato, Posicion, Valor, Alcance
-        DefaultTableModel dtm = new DefaultTableModel();
+ 
         tabla2=new JTable(dtm);
+        //dtm.setValueAt("one", 0, 1);
         scrollpane1=new JScrollPane(textarea1);   
         scrollpane12=new JScrollPane(textarea2); 
         scrollpane13=new JScrollPane(tabla2); 
@@ -60,6 +65,9 @@ class comp extends JFrame implements compConstants {
         b1=new JButton("Análisis");
         b1.setBounds(10,440,100,30);
         add(b1);
+        b2=new JButton("Borrar");
+        b2.setBounds(10,470,100,30);
+        add(b2);
         textarea3=new JTextArea(); 
         scrollpane13=new JScrollPane(textarea3);
         scrollpane13.setBounds(120,440,500,60);
@@ -96,6 +104,17 @@ class comp extends JFrame implements compConstants {
 				}
         	    
 
+        	}
+        	
+        });
+        
+        b2.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent ae){
+        		textarea1.setText("");
+        		textarea2.setText("");
+        		textarea3.setText("");
+        		textarea2.setEnabled(false);
+    			textarea3.setEnabled(false);
         	}
         	
         });

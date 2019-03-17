@@ -71,6 +71,11 @@ public class GenerarTabla {
 				}
 				parrafoAux += Character.toString(parrafo.charAt(j));
 			}
+			if (tablaSimbolos.containsKey(variable)) {
+				comp.textarea3.append("Error: La variable " + "'" + variable + "'" + " ya se encuentra declarada en el renglon "
+						+ tablaSimbolos.get(variable).getPosicion() + "."); comp.textarea3.append(System.getProperty("line.separator"));
+			}
+			else {
 			if (parrafo.contains(sPublic) || parrafo.contains(sPrivate)) {
 				tablaSimbolos.put(variable, new TablaSimbolos(Tipo.toString(), pos, valor, "global"));
 				variables.add(variable);
@@ -78,10 +83,11 @@ public class GenerarTabla {
 				tablaSimbolos.put(variable, new TablaSimbolos(Tipo.toString(), pos, valor, "local"));
 				variables.add(variable);
 			}
+			}
 		}
 	}
 	
-	public void imprimeTabla() {
+	/*public void imprimeTabla() {
 		for (int i = 0; i < variables.size(); i++) {
 			System.out.println(variables.get(i) + "\t\t" + tablaSimbolos.get(variables.get(i)).getTipoDato() + "\t\t"
 					+ tablaSimbolos.get(variables.get(i)).getValor() + "\t\t"
@@ -89,7 +95,35 @@ public class GenerarTabla {
 					+ tablaSimbolos.get(variables.get(i)).getAlcance());
 		}
 
+	}*/
+	public void imprimeTabla() {
+		for (int i = 0; i < variables.size(); i++) {
+			for (int j=0; j<5; j++) {
+				switch (j) {
+				case 0:
+					comp.dtm.setValueAt(variables.get(i), i, j);
+					break;
+				case 1:
+					comp.dtm.setValueAt(tablaSimbolos.get(variables.get(i)).getTipoDato(), i, j);
+					break;
+				case 2:
+					comp.dtm.setValueAt(tablaSimbolos.get(variables.get(i)).getValor(), i, j);
+					break;
+				case 3:
+					comp.dtm.setValueAt(tablaSimbolos.get(variables.get(i)).getPosicion(), i, j);
+					break;
+				case 4:
+					comp.dtm.setValueAt(tablaSimbolos.get(variables.get(i)).getAlcance(), i, j);
+					break;
+				default:
+					break;
+				}
+			}
+			
+		}
+
 	}
+	
 	
 }
 
