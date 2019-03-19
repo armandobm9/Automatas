@@ -68,7 +68,7 @@ class TokenAsignaciones
 			catch(Exception e)
 			{
 				//Si TokenIzq.image no se encuentra en la tabla en la cual se agregan los tokens, el token no ha sido declarado, y se manda un error
-				return "Error: El identificador " + TokenIzq.image + " No ha sido declarado \r\nLinea: " + TokenIzq.beginLine;
+				return "Error: El identificador " + TokenIzq.image + " No ha sido declarado. Linea: " + TokenIzq.beginLine;
 			}
 		}
 		else 		
@@ -86,7 +86,7 @@ class TokenAsignaciones
 			catch(Exception e)
 			{
 				//si el identificador no existe manda el error
-				return "Error: El identificador " + TokenAsig.image + " No ha sido declarado \r\nLinea: " + TokenIzq.beginLine;
+				return "Error: El identificador " + TokenAsig.image + " No ha sido declarado. Linea: " + TokenIzq.beginLine;
 			}
 		}
 				//Si el dato es entero(48) o decimal(50) o caracter(51) o cadena(52)
@@ -105,14 +105,14 @@ class TokenAsignaciones
 			if(intComp.contains(tipoIdent2))
 				return " ";
 			else //Si el tipo de dato no es compatible manda el error
-				return "Error: No se puede convertir " + TokenAsig.image + " a Entero \r\nLinea: " + TokenIzq.beginLine;
+				return "Error: No se puede convertir " + TokenAsig.image + " a entero (int). Linea: " + TokenIzq.beginLine;
 		}
 		else if(tipoIdent1 == 45) //double
 		{
 			if(decComp.contains(tipoIdent2))
 				return " ";
 			else
-				return "Error: No se puede convertir " + TokenAsig.image + " a Decimal \r\nLinea: " + TokenIzq.beginLine;
+				return "Error: No se puede convertir " + TokenAsig.image + " a decimal (double). Linea: " + TokenIzq.beginLine;
 		}
 		else if(tipoIdent1 == 46) //char
 		{
@@ -125,10 +125,10 @@ class TokenAsignaciones
 				if(chrComp.contains(tipoIdent2))
 					return " ";				
 				else
-					return "Error: No se puede convertir " + TokenAsig.image + " a Caracter \r\nLinea: " + TokenIzq.beginLine;	
+					return "Error: No se puede convertir " + TokenAsig.image + " a caracter (char). Linea: " + TokenIzq.beginLine;	
 			}
 			else //Si se esta asignando mas de un caracter manda el error 			
-				return "Error: No se puede asignar mas de un valor a un caracter \r\nLinea: " + TokenIzq.beginLine;
+				return "Error: No se puede asignar mas de un valor a un caracter. Linea: " + TokenIzq.beginLine;
 			
 		}
 		else if(tipoIdent1 == 47) //string
@@ -136,11 +136,11 @@ class TokenAsignaciones
 			if(strComp.contains(tipoIdent2))
 				return " ";
 			else
-				return "Error: No se puede convertir " + TokenAsig.image + " a Cadena \r\nLinea: " + TokenIzq.beginLine;
+				return "Error: No se puede convertir " + TokenAsig.image + " a cadena (String). Linea: " + TokenIzq.beginLine;
 		}
 		else
 		{
-			return "El Identificador " + TokenIzq.image + " no ha sido declarado" + " Linea: " + TokenIzq.beginLine;
+			return "El Identificador " + TokenIzq.image + " no ha sido declarado. Linea: " + TokenIzq.beginLine;
 		}
 	}	  
 	
@@ -158,7 +158,7 @@ class TokenAsignaciones
 		catch(Exception e)
 		{
 			//Si no lo puede obtener, manda el error
-			return "Error: El identificador " + checkTok.image + " No ha sido declarado \r\nLinea: " + checkTok.beginLine;
+			return "Error: El identificador " + checkTok.image + " No ha sido declarado. Linea: " + checkTok.beginLine;
 		}
 	}
 

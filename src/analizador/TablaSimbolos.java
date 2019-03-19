@@ -1,22 +1,22 @@
 package analizador;
 
 public class TablaSimbolos {
-	private String tipoDato;
+	private String tipo;
 	private int posicion;
 	private Object valor;
 	private String alcance;
 
-	public TablaSimbolos(String tipoDato, int posicion, Object valor, String alcance) {
-		this.tipoDato = tipoDato;
+	public TablaSimbolos(String tipo, int posicion, Object valor, String alcance) {
+		this.tipo = tipo;
 		this.posicion = posicion;
 		this.valor = valor;
 		this.alcance = alcance;
 	}
-	public String getTipoDato() {
-		return tipoDato;
+	public String getTipo() {
+		return tipo;
 	}
-	public void setTipoDato(String tipoDato) {
-		this.tipoDato = tipoDato;
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
 	}
 	public int getPosicion() {
 		return posicion;

@@ -24,6 +24,7 @@ class comp extends JFrame implements compConstants {
     private JScrollPane scrollpane1;
     private JScrollPane scrollpane12;
     private JScrollPane scrollpane13;
+    private JScrollPane scrollpane14;
     private JTextArea textarea1;
     public static JTextArea textarea2;
     public static JTextArea textarea3;
@@ -31,7 +32,7 @@ class comp extends JFrame implements compConstants {
     public static JTextField textfield1;
     private static JTable tabla2;
     public static String headers[] = { "Nombre", "Tipo", "Valor", "Posición", "Alcance" };
-    public static DefaultTableModel dtm = new DefaultTableModel(headers, 10);
+    public static DefaultTableModel dtm = new DefaultTableModel(headers, 24);
     
     public comp() {
     	super("Compilador");
@@ -69,10 +70,10 @@ class comp extends JFrame implements compConstants {
         b2.setBounds(10,470,100,30);
         add(b2);
         textarea3=new JTextArea(); 
-        scrollpane13=new JScrollPane(textarea3);
-        scrollpane13.setBounds(120,440,500,60);
+        scrollpane14=new JScrollPane(textarea3);
+        scrollpane14.setBounds(120,440,810,60);
         textarea3.setEnabled(false);
-        add(scrollpane13);
+        add(scrollpane14);
         
         
         b1.addActionListener(new ActionListener() {
@@ -89,8 +90,17 @@ class comp extends JFrame implements compConstants {
                     // Here do something with your input stream (something non-blocking)
                     
 					if(analizador==null) analizador = new comp(is); else ReInit(is) ;
-                
+					GenerarTabla.tablaSimbolos.clear();
+					for (int i = 0; i < GenerarTabla.variables.size(); i++) {
+						for (int j=0; j<5; j++) {
+							dtm.setValueAt("", i, j);
+						}
+					}
+					GenerarTabla.variables.clear();
+					TokenAsignaciones.tabla.clear();
+				
                     analizador.Programa();
+                    
                     GenerarTabla tabla = new GenerarTabla(text);
                    
                     //textarea3.setText("Análisis léxico-sintáctico correcto");
@@ -115,6 +125,14 @@ class comp extends JFrame implements compConstants {
         		textarea3.setText("");
         		textarea2.setEnabled(false);
     			textarea3.setEnabled(false);
+    			GenerarTabla.tablaSimbolos.clear();
+    			for (int i = 0; i < GenerarTabla.variables.size(); i++) {
+					for (int j=0; j<5; j++) {
+						dtm.setValueAt("", i, j);
+					}
+				}
+    			GenerarTabla.variables.clear();
+    			TokenAsignaciones.tabla.clear();
         	}
         	
         });
