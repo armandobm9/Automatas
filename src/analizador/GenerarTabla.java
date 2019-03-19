@@ -67,6 +67,7 @@ public class GenerarTabla {
 				parrafoAux += Character.toString(renglon.charAt(j));
 			}
 			if (tablaSimbolos.containsKey(variable)) {
+				AnalisisSemantico.errores = true;
 				comp.textarea3.append("Error: La variable " + "'" + variable + "'" + " ya se encuentra declarada en el renglon "
 						+ tablaSimbolos.get(variable).getPosicion() + "."); comp.textarea3.append(System.getProperty("line.separator"));
 			}

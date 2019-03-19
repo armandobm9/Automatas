@@ -97,13 +97,14 @@ class comp extends JFrame implements compConstants {
 						}
 					}
 					GenerarTabla.variables.clear();
-					TokenAsignaciones.tabla.clear();
+					AnalisisSemantico.tabla.clear();
 				
                     analizador.Programa();
                     
                     GenerarTabla tabla = new GenerarTabla(text);
-                   
-                    //textarea3.setText("Análisis léxico-sintáctico correcto");
+                    if (AnalisisSemantico.errores == false) {
+                    	textarea3.append("Análisis terminado, código correcto...");
+                    }
                     ReInit(is);
                     
                 } catch (UnsupportedEncodingException e1) {
@@ -132,7 +133,7 @@ class comp extends JFrame implements compConstants {
 					}
 				}
     			GenerarTabla.variables.clear();
-    			TokenAsignaciones.tabla.clear();
+    			AnalisisSemantico.tabla.clear();
         	}
         	
         });
@@ -228,7 +229,7 @@ class comp extends JFrame implements compConstants {
     Bloque();
   }
 
-  static final public void Principal() throws ParseException {TokenAsignaciones.SetTables();
+  static final public void Principal() throws ParseException {AnalisisSemantico.SetTables();
     jj_consume_token(MAIN);
     jj_consume_token(LBRACE);
     Sentencias();
@@ -240,7 +241,7 @@ class comp extends JFrame implements compConstants {
     TiposDatos();
 td = token.kind;
     var = jj_consume_token(IDENTIFIER);
-TokenAsignaciones.InsertarSimbolo(var, td);
+AnalisisSemantico.InsertarSimbolo(var, td);
     switch ((jj_ntk==-1)?jj_ntk_f():jj_ntk) {
     case ASIGNACION:{
       VariablesAsignacion(var);
@@ -263,7 +264,7 @@ TokenAsignaciones.InsertarSimbolo(var, td);
       }
       jj_consume_token(COMMA);
       var = jj_consume_token(IDENTIFIER);
-TokenAsignaciones.InsertarSimbolo(var, td);
+AnalisisSemantico.InsertarSimbolo(var, td);
       switch ((jj_ntk==-1)?jj_ntk_f():jj_ntk) {
       case ASIGNACION:{
         VariablesAsignacion(var);
@@ -285,7 +286,7 @@ TokenAsignaciones.InsertarSimbolo(var, td);
     jj_consume_token(ASIGNACION);
     TiposAsignaciones();
 v2 = token;
-                res = TokenAsignaciones.checkAsing(v1, v2);
+                res = AnalisisSemantico.checkAsing(v1, v2);
 
                 if(res != " ")
                 {
@@ -314,7 +315,7 @@ v2 = token;
       OpAritmetico();
       TiposAsignaciones();
 v3 = token;
-                res = TokenAsignaciones.checkAsing(v1, v3);
+                res = AnalisisSemantico.checkAsing(v1, v3);
 
                 if(res != " " && !imp)
                 {
@@ -381,7 +382,7 @@ v3 = token;
         if (jj_2_3(2)) {
           SentenciaAsignacion();
           jj_consume_token(SEMICOLON);
-TokenAsignaciones.segunda = 0;
+AnalisisSemantico.segunda = 0;
         } else {
           switch ((jj_ntk==-1)?jj_ntk_f():jj_ntk) {
           case WRITE:{
@@ -723,7 +724,7 @@ void Comparaciones() throws ParseException {
     TiposDatos();
 td = token.kind;
     var = jj_consume_token(IDENTIFIER);
-TokenAsignaciones.InsertarSimbolo(var, td);
+AnalisisSemantico.InsertarSimbolo(var, td);
     switch ((jj_ntk==-1)?jj_ntk_f():jj_ntk) {
     case ASIGNACION:{
       VariablesAsignacion(var);
@@ -783,7 +784,7 @@ TokenAsignaciones.InsertarSimbolo(var, td);
       jj_consume_token(ASIGNACION);
       TiposAsignaciones();
 v2 = token;
-        res = TokenAsignaciones.checkAsing(v1, v2);
+        res = AnalisisSemantico.checkAsing(v1, v2);
 
         if(res != " ")
         {
@@ -800,7 +801,7 @@ v2 = token;
         OpAritmetico();
         TiposAsignaciones();
 v3 = token;
-        res = TokenAsignaciones.checkAsing(v1, v3);
+        res = AnalisisSemantico.checkAsing(v1, v3);
 
         if(res != " " && !imp)
         {
@@ -825,7 +826,7 @@ v3 = token;
         jj_consume_token(-1);
         throw new ParseException();
       }
-res = TokenAsignaciones.checkVariable(v1);
+res = AnalisisSemantico.checkVariable(v1);
 
         if(res != " ")
         	textarea3.append(res); textarea3.append(System.getProperty("line.separator"));
