@@ -7,8 +7,8 @@ public static void Main()
 
 	if(x==y){
 
-		x=12+34;
-		y=20;
+		x=1+4;
+		y=2+5;
 	}
 
 

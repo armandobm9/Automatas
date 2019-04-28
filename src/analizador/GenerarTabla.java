@@ -25,10 +25,7 @@ public class GenerarTabla {
 		imprimirTablaSimbolos();
 		if (!AnalisisSemantico.errores)
 			triplos(); // si no hay errores semanticos procedemos a hacer los triplos
-		for(int i=0;i<t.size();i++) {
-			System.out.println(t.get(i).getNum() + " = " + t.get(i).getOp());
-		}
-		System.out.println(inicial+"="+t.get(t.size()-1).getNum());
+		
 	}
 	
 	public void Leer(String codigo) {
@@ -139,9 +136,10 @@ public class GenerarTabla {
 		int pos = 0, cont = 1;
 		String triplo = "";
 		for (int i = 0; i < operaciones.size(); i++) {
+			//t.clear();
 			operacion = operaciones.get(i).replaceAll("\\s", ""); // quitamos espacios en blanco
 			operacionAux = quitaIgual(operacion);
-			System.out.println("operación: " + operacion);
+			comp.textarea4.append("Operación: "+operacion+"\n");
 			while (!operacionAux.isEmpty()) {
 				//verificamos si contiene un numero negativo
 				if((operacionAux.contains("-")) && esOperador(operacionAux.charAt(operacionAux.indexOf("-") - 1))) {
@@ -217,7 +215,13 @@ public class GenerarTabla {
 					}
 				}
 			}
-
+			for(int j=0;j<t.size();j++) {
+				comp.textarea4.append(t.get(j).getNum() + " = " + t.get(j).getOp()+"\n");
+			}
+			comp.textarea4.append(inicial+"="+t.get(t.size()-1).getNum()+"\n\n");
+			t.clear();
+			pos = 0;
+			cont = 1;
 		}
 	}
 

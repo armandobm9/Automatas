@@ -25,10 +25,12 @@ class comp extends JFrame implements compConstants {
     private JScrollPane scrollpane12;
     private JScrollPane scrollpane13;
     private JScrollPane scrollpane14;
+    private JScrollPane scrollpane15;
     private JTextArea textarea1;
     public static JTextArea textarea2;
     public static JTextArea textarea3;
-    private JLabel label1, label2, label3;
+    public static JTextArea textarea4;
+    private JLabel label1, label2, label3, label4;
     public static JTextField textfield1;
     private static JTable tabla2;
     public static String headers[] = { "Nombre", "Tipo", "Valor", "Posición", "Alcance" };
@@ -46,6 +48,9 @@ class comp extends JFrame implements compConstants {
         label3=new JLabel("Tabla de símbolos:");
         label3.setBounds(630,2,150,30);
         add(label3);
+        label4=new JLabel("Triplos:");
+        label4.setBounds(940,2,150,30);
+        add(label4);
         textarea1=new JTextArea();     
         textarea2=new JTextArea(); 
         //Nombre, Tipo Dato, Posicion, Valor, Alcance
@@ -74,6 +79,11 @@ class comp extends JFrame implements compConstants {
         scrollpane14.setBounds(120,440,810,60);
         textarea3.setEnabled(false);
         add(scrollpane14);
+        textarea4=new JTextArea(); 
+        scrollpane15=new JScrollPane(textarea4);
+        scrollpane15.setBounds(940,30,300,400);
+        textarea4.setEnabled(false);
+        add(scrollpane15);
         
         
         b1.addActionListener(new ActionListener() {
@@ -83,6 +93,8 @@ class comp extends JFrame implements compConstants {
         			textarea2.setEnabled(true);
         			textarea3.setEnabled(true);
         			textarea3.setText("");
+        			textarea4.setEnabled(true);
+        			textarea4.setText("");
         			
                     String text = textarea1.getText();
                     InputStream is = new ByteArrayInputStream(text.getBytes("UTF-8"));
@@ -124,8 +136,10 @@ class comp extends JFrame implements compConstants {
         		textarea1.setText("");
         		textarea2.setText("");
         		textarea3.setText("");
+        		textarea4.setText("");
         		textarea2.setEnabled(false);
     			textarea3.setEnabled(false);
+    			textarea4.setEnabled(false);
     			GenerarTabla.tablaSimbolos.clear();
     			for (int i = 0; i < GenerarTabla.variables.size(); i++) {
 					for (int j=0; j<5; j++) {
@@ -142,7 +156,7 @@ class comp extends JFrame implements compConstants {
         public static void main( String[] args )throws ParseException, Exception
         {
         	comp v1 = new comp();
-        	v1.setBounds(0,0,950,540);
+        	v1.setBounds(0,0,1255,540);
             v1.setVisible(true);
             v1.setResizable(false);
         }
