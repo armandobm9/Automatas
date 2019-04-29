@@ -1,21 +1,21 @@
-package analizador;
+package analizador2;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Stack;
 
-import analizador.TablaSimbolos;
+import analizador2.TablaSimbolos;
 
 public class GenerarTabla {
 	public static HashMap<String, TablaSimbolos> tablaSimbolos = new HashMap<String, TablaSimbolos>();
 	ArrayList<String> linea = new ArrayList<String>();
 	public static ArrayList<String> variables = new ArrayList<>();
-	private ArrayList<String> listaErroresSemanticos = new ArrayList<String>();
-	private ArrayList<String> operadoreslogicos = new ArrayList<>(), operadoresaritmeticos = new ArrayList<>();
 	private ArrayList<String> operaciones = new ArrayList<String>();
-	private ArrayList<Triplo> t = new ArrayList<Triplo>();
+	static int address=10;
+    static int index=1;
 	char inicial;
 	
 	public GenerarTabla(String codigo) {
@@ -133,97 +133,120 @@ public class GenerarTabla {
 	
 	public void triplos() { // Generación de triplos
 		String operacion, operacionAux;
-		int pos = 0, cont = 1;
-		String triplo = "";
+		
 		for (int i = 0; i < operaciones.size(); i++) {
-			//t.clear();
 			operacion = operaciones.get(i).replaceAll("\\s", ""); // quitamos espacios en blanco
 			operacionAux = quitaIgual(operacion);
-			comp.textarea4.append("Operación: "+operacion+"\n");
-			while (!operacionAux.isEmpty()) {
-				//verificamos si contiene un numero negativo
-				if((operacionAux.contains("-")) && esOperador(operacionAux.charAt(operacionAux.indexOf("-") - 1))) {
-							pos=operacionAux.indexOf("-");
-							t.add(new Triplo("T"+cont,Character.toString(operacionAux.charAt(pos))+Character.toString(operacionAux.charAt(pos+1))));
-							operacionAux = operacionAux.replace(Character.toString(operacionAux.charAt(pos))+Character.toString(operacionAux.charAt(pos+1)), "");
-							cont++;
-				}
-				// Agregamos primero lo que se encuentra en parentesis
-				if (operacionAux.contains("(")) {
-					pos = operacionAux.indexOf("(") + 1;
-					while (operacionAux.charAt(pos) != ')') {
-						triplo = triplo + operacionAux.charAt(pos);
-						pos++;
-					}
-					operacionAux = operacionAux.replace("(", "");
-					operacionAux = operacionAux.replace(")", "");
-					t.add(new Triplo("T" + cont, triplo));
-					cont++;
-					operacionAux = operacionAux.replace(triplo, "");
-				} else {
-					//System.out.println(operacionAux.length());
-					// cuando la longitud es de 1, se realiza la operacion con los dos ultimos
-					// triplos
-					if (operacionAux.length() == 1) {
-						triplo = t.get(cont-3).getNum() + operacionAux.charAt(0) + t.get(cont-2).getNum();
-						t.add(new Triplo("T" + cont, triplo));
-						operacionAux = operacionAux.replace(Character.toString(operacionAux.charAt(0)), "");
-					} else {
-						// Cuando la longitud es 2, se realiza la operacion con el operando y el ultimo
-						// triplo
-						if (operacionAux.length() == 2) {
-							System.out.println(cont);
-							triplo = Character.toString(operacionAux.charAt(0)) + Character.toString(operacionAux.charAt(1)) + t.get(cont - 2).getNum();
-							t.add(new Triplo("T" + cont, triplo));
-							operacionAux = operacionAux.replace(Character.toString(operacionAux.charAt(0))
-									+ Character.toString(operacionAux.charAt(1)), "");
-							cont++;
-						} else {
-							// Si es un operando se hace un triplo
-							if (!esOperador(operacionAux.charAt(operacionAux.length() - 1))) {
-								triplo = Character.toString(operacionAux.charAt(operacionAux.length() - 1));
-								System.out.println(triplo);
-								t.add(new Triplo("T" + cont, triplo));
-								operacionAux = operacionAux.replace(triplo, "");
-								cont++;
-							} else {
-								// Si es un operador y su antecesor es un operador se realiza la operacion con
-								// los dos ultimos triplos
-								if (esOperador(operacionAux.charAt(operacionAux.length() - 2))) {
-									triplo = t.get(cont - 3).getNum() + Character.toString(operacionAux.charAt(operacionAux.length() - 1))
-											+ t.get(cont - 2).getNum();
-									t.add(new Triplo("T" + cont, triplo));
-									operacionAux = operacionAux.substring(0, operacionAux.length() - 1);
-									/*operacionAux = operacionAux.replace(
-											Character.toString(operacionAux.charAt(operacionAux.length() - 1)), "");*/
-									cont++;
-								} else {
-									// Si es un operando entonces se agrega un nuevo triplo
-									if (!esOperador(operacionAux.charAt(operacionAux.length() - 2))) {
-										triplo = Character.toString(operacionAux.charAt(0))
-												+ Character.toString(operacionAux.charAt(1))
-												+ Character.toString(operacionAux.charAt(2));
-										t.add(new Triplo("T" + cont, triplo));
-										operacionAux = operacionAux.replace(triplo, "");
-										cont++;
-									}
-								}
-
-							}
-
-						}
-					}
-				}
-			}
-			for(int j=0;j<t.size();j++) {
-				comp.textarea4.append(t.get(j).getNum() + " = " + t.get(j).getOp()+"\n");
-			}
-			comp.textarea4.append(inicial+"="+t.get(t.size()-1).getNum()+"\n\n");
-			t.clear();
-			pos = 0;
-			cont = 1;
+			comp.textarea4.append("Operación: " + operacionAux+"\n");
+			Shunting parentNode=shunt(operacionAux);
+	       
+	        postOrder(parentNode);
+	       
+	        dfs(parentNode);
+	        comp.textarea4.append(Character.toString(operacion.charAt(0))+" = T"+(index-1)+"\n\n");
 		}
 	}
+	
+	public static void dfs(Shunting root){
+        if (isOperator(root.charac)){
+            dfs(root.operand1);
+            dfs(root.operand2);
+//            System.out.println(++memory  +" : "+ root.charac +" " + root.operand1.charac +" " + root.operand2.charac);
+            comp.textarea4.append(root.name +" = " + root.operand1.name + " "+ root.charac  + " " + root.operand2.name+"\n");
+            
+        }
+    }
+
+
+    public static void postOrder(Shunting root){
+        if (root.operand1!=null){
+            postOrder(root.operand1);
+        }
+
+        if (root.operand2!=null){
+            postOrder(root.operand2);
+        }
+        System.out.println(root.charac +" ");
+    }
+
+
+
+    private static Shunting shunt(String inputString) {
+
+
+        Stack1 myStack=new Stack1();
+        Operator opr=new Operator();
+
+//        String inputString="5*3+(4+2*2)";
+
+        Stack<Character> operatorStack= new Stack();
+        Stack<Shunting> expressionStack=new Stack();
+
+        Character c;
+        for (int i=0;i<inputString.length();i++){
+
+            c=inputString.charAt(i);
+
+            if (c=='('){
+                operatorStack.push(c);
+            }
+
+            else if (Character.isDigit(c)){
+                expressionStack.push(new Shunting(c));
+            }
+
+            else if (isOperator(c)){
+
+                    while (opr.getOperatorPrecedence(myStack.getTopOfOperator(operatorStack)) >= opr.getOperatorPrecedence(c)) {
+                        Character operator = operatorStack.pop();
+                        Shunting e2 = expressionStack.pop();
+                        Shunting e1 = expressionStack.pop();
+
+                        expressionStack.push(new Shunting(operator,e1,e2,"E"+index++));
+                    }
+
+                operatorStack.push(c);
+            }
+
+            else if (c==')'){
+
+                    while (myStack.getTopOfOperator(operatorStack) != '(') {
+
+                        Character operator = operatorStack.pop();
+                        Shunting e2 = expressionStack.pop();
+                        Shunting e1 = expressionStack.pop();
+
+                        expressionStack.push(new Shunting(operator,e1,e2,"E"+index++));
+                    }
+
+                operatorStack.pop();
+            }
+
+            else{
+                System.out.println("error error");
+            }
+        }
+
+        while(!operatorStack.empty()){
+            Character operator=operatorStack.pop();
+            Shunting e2=expressionStack.pop();
+            Shunting e1=expressionStack.pop();
+            expressionStack.push(new Shunting(operator,e1,e2,"T"+index++));
+        }
+
+
+        return expressionStack.pop();
+    }
+
+    public static boolean isOperator(Character c){
+        if (c=='+' || c=='-' || c=='/' || c=='*'|| c=='%'){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+			
 
 	String quitaIgual(String operacion) {
 		int indice;
@@ -235,11 +258,7 @@ public class GenerarTabla {
 		return operacion;
 	}
 
-	boolean esOperador(char c) {
-		if (c == '+' || c == '-' || c == '*' || c == '/')
-			return true;
-		return false;
-	}
+	
 	
 	
 

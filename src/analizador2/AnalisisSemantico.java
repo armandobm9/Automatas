@@ -1,4 +1,4 @@
-package analizador;
+package analizador2;
 
 import java.io.PrintStream;
 import java.util.Hashtable;

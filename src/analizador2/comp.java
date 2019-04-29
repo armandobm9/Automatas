@@ -1,4 +1,4 @@
-package analizador;
+package analizador2;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -16,7 +16,7 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
-import analizador.GenerarTabla;
+import analizador2.GenerarTabla;
 class comp extends JFrame implements compConstants {
 	
 	static comp analizador = null ;

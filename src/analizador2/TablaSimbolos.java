@@ -1,4 +1,4 @@
-package analizador;
+package analizador2;
 
 public class TablaSimbolos {
 	private String tipo;
