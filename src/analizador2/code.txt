@@ -7,7 +7,7 @@ public static void Main()
 
 	if(x==y){
 
-		y=5+4
+		y=5+4;
 	}
 
 

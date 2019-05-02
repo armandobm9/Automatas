@@ -135,9 +135,11 @@ public class GenerarTabla {
 		String operacion, operacionAux;
 		
 		for (int i = 0; i < operaciones.size(); i++) {
+			index = 1;
+			address = 10;
 			operacion = operaciones.get(i).replaceAll("\\s", ""); // quitamos espacios en blanco
 			operacionAux = quitaIgual(operacion);
-			comp.textarea4.append("Operación: " + operacionAux+"\n");
+			comp.textarea4.append("Operación: " + operacion+"\n");
 			Shunting parentNode=shunt(operacionAux);
 	       
 	        postOrder(parentNode);
@@ -183,15 +185,17 @@ public class GenerarTabla {
         Stack<Shunting> expressionStack=new Stack();
 
         Character c;
-        for (int i=0;i<inputString.length();i++){
 
+        for (int i=0;i<inputString.length();i++){
+        	
             c=inputString.charAt(i);
+            	
 
             if (c=='('){
                 operatorStack.push(c);
             }
 
-            else if (Character.isDigit(c)){
+            else if (!isOperator(c) && c!='(' && c!=')'){
                 expressionStack.push(new Shunting(c));
             }
 
@@ -202,7 +206,7 @@ public class GenerarTabla {
                         Shunting e2 = expressionStack.pop();
                         Shunting e1 = expressionStack.pop();
 
-                        expressionStack.push(new Shunting(operator,e1,e2,"E"+index++));
+                        expressionStack.push(new Shunting(operator,e1,e2,"T"+index++));
                     }
 
                 operatorStack.push(c);
@@ -216,12 +220,13 @@ public class GenerarTabla {
                         Shunting e2 = expressionStack.pop();
                         Shunting e1 = expressionStack.pop();
 
-                        expressionStack.push(new Shunting(operator,e1,e2,"E"+index++));
+                        expressionStack.push(new Shunting(operator,e1,e2,"T"+index++));
                     }
 
                 operatorStack.pop();
             }
 
+            
             else{
                 System.out.println("error error");
             }

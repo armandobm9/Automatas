@@ -89,31 +89,33 @@ class comp extends JFrame implements compConstants {
         b1.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent ae){
         		textarea2.setText("");
+        		textarea2.setEnabled(true);
+    			textarea3.setEnabled(true);
+    			textarea3.setText("");
+    			textarea4.setEnabled(true);
+    			textarea4.setText("");
+    			String text = textarea1.getText();
+    			GenerarTabla.tablaSimbolos.clear();
+    			for (int i = 0; i < GenerarTabla.variables.size(); i++) {
+					for (int j=0; j<5; j++) {
+						dtm.setValueAt("", i, j);
+					}
+				}
+    			GenerarTabla.variables.clear();
+				AnalisisSemantico.tabla.clear();
+				GenerarTabla.index = 1;
+				
+				GenerarTabla tabla = new GenerarTabla(text);
         		try {
-        			textarea2.setEnabled(true);
-        			textarea3.setEnabled(true);
-        			textarea3.setText("");
-        			textarea4.setEnabled(true);
-        			textarea4.setText("");
         			
-                    String text = textarea1.getText();
                     InputStream is = new ByteArrayInputStream(text.getBytes("UTF-8"));
-                    
                     // Here do something with your input stream (something non-blocking)
                     
 					if(analizador==null) analizador = new comp(is); else ReInit(is) ;
-					GenerarTabla.tablaSimbolos.clear();
-					for (int i = 0; i < GenerarTabla.variables.size(); i++) {
-						for (int j=0; j<5; j++) {
-							dtm.setValueAt("", i, j);
-						}
-					}
-					GenerarTabla.variables.clear();
-					AnalisisSemantico.tabla.clear();
-				
+
                     analizador.Programa();
                     
-                    GenerarTabla tabla = new GenerarTabla(text);
+                    
                     if (AnalisisSemantico.errores == false) {
                     	textarea3.append("Análisis terminado, código correcto...");
                     }
@@ -123,7 +125,7 @@ class comp extends JFrame implements compConstants {
                     e1.printStackTrace();
                 } catch (ParseException e) {
 					// TODO Auto-generated catch block
-                	textarea3.setText(e.getMessage());
+                	textarea3.append(e.getMessage());
 				}
         	    
 
@@ -148,6 +150,7 @@ class comp extends JFrame implements compConstants {
 				}
     			GenerarTabla.variables.clear();
     			AnalisisSemantico.tabla.clear();
+    			GenerarTabla.index = 1;
         	}
         	
         });
